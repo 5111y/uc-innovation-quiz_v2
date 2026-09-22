@@ -63,33 +63,35 @@
         <span id="progressText">1 / 5</span>
       </div>
 
-      <div class="quiz-card">
+<div class="quiz-card">
 
-        <!-- 문제 영역 -->
-        <div id="questionArea" class="question-area">
+  <div id="questionArea" class="question-area">
 
-          <p id="questionNumber" class="question-number">
-            Q1
-          </p>
+    <p id="questionNumber" class="question-number">
+      Q1
+    </p>
 
-          <h2 id="questionText"></h2>
+    <h2 id="questionText"></h2>
 
-        </div>
+    <!-- 보기 -->
+    <div id="options" class="options"></div>
 
-        <!-- 보기 -->
-        <div id="options" class="options"></div>
+    <!-- 정답/오답 오버레이 -->
+    <div id="answerOverlay" class="answer-overlay" hidden>
+      <div class="answer-popup">
 
-        <!-- 기존 피드백 박스는 사용하지 않음 -->
-        <div id="feedback" class="feedback" hidden></div>
+        <div id="answerIcon" class="answer-icon"></div>
 
-        <!-- 기존 다음 버튼도 사용하지 않음 -->
-        <button id="nextBtn"
-                class="primary-btn next-btn"
-                hidden>
-          다음 문제
-        </button>
+        <h3 id="answerTitle"></h3>
+
+        <p id="answerText"></p>
 
       </div>
+    </div>
+
+  </div>
+
+</div>
     </section>
 
 
