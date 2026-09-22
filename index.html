@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#6b4eff">
+  <title>초간단 미션 룰렛</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="app">
+    <section id="startScreen" class="screen active">
+<div style="
+    background:#006659;
+    border-radius:20px;
+    padding:16px 24px;
+    width:91%;
+    margin:0 auto 24px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+">
+    <img src="./assets/images/logo.png"
+         style="display:block; width:210px; height:auto;">
+</div>
+
+      <p class="eyebrow">전문대학혁신지원사업단</p>
+      <h1>초간단<br><strong>미션 룰렛</strong></h1>
+      <p class="subtitle">퀴즈 풀고 룰렛 돌리기!</p>
+
+      <div class="intro-card">
+        <div>📝 퀴즈 3문제</div>
+        <div>🎯 룰렛 1회</div>
+        <div>🎁 선물 당첨</div>
+      </div>
+
+      <button id="startBtn" class="primary-btn">시작하기</button>
+      <p class="notice">울산과학대학교 2026 지산학 페스티벌</p>
+    </section>
+
+    <section id="quizScreen" class="screen">
+      <div class="topbar">
+        <span class="badge">MISSION</span>
+        <span id="progressText">1 / 3</span>
+      </div>
+
+      <div class="quiz-card">
+        <p id="questionNumber" class="question-number">Q1</p>
+        <h2 id="questionText"></h2>
+        <div id="options" class="options"></div>
+        <div id="feedback" class="feedback" hidden></div>
+        <button id="nextBtn" class="primary-btn next-btn" hidden>다음 문제</button>
+      </div>
+    </section>
+
+    <section id="rouletteScreen" class="screen">
+      <p class="eyebrow">MISSION CLEAR!</p>
+      <h2>이제 룰렛을<br><strong>돌려보세요!</strong></h2>
+
+      <div class="roulette-wrap">
+        <div class="pointer"></div>
+        <div id="roulette" class="roulette"></div>
+        <div class="roulette-center">UC</div>
+      </div>
+
+      <p class="roulette-hint">행운의 선물을 뽑아보세요 🎁</p>
+      <button id="spinBtn" class="primary-btn">룰렛 돌리기</button>
+    </section>
+
+    <section id="resultScreen" class="screen">
+      <div class="result-icon">🎉</div>
+      <p class="eyebrow">MISSION COMPLETE!</p>
+      <h2>축하합니다!</h2>
+      <div class="result-card">
+        <p>당첨 결과</p>
+        <strong id="resultPrize"></strong>
+      </div>
+      <p class="result-message">부스 운영자에게 이 화면을 보여주세요.</p>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

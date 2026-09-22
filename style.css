@@ -1,0 +1,594 @@
+** {
+  box-sizing: border-box;
+}
+
+:root {
+  /* 울산과학대학교 CI */
+  --primary: #006659;
+  --primary-dark: #004d46;
+  --primary-light: #e7f5f2;
+
+  --text: #333333;
+  --muted: #6f7d7a;
+
+  --white: #ffffff;
+  --bg: #f4faf9;
+
+  /* 포인트 색상 */
+  --mint: #a8ddd4;
+  --sky: #cceaf2;
+  --yellow: #f6d978;
+  --orange: #f2b36d;
+
+  --green: #2f9b78;
+  --green-light: #edf9f5;
+
+  --red: #df6b72;
+  --red-light: #fff1f2;
+
+  --border: #dceae7;
+
+  --shadow: 0 14px 35px rgba(0, 80, 70, 0.10);
+  --shadow-strong: 0 16px 35px rgba(0, 80, 70, 0.16);
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Noto Sans KR",
+    "Malgun Gothic",
+    sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, #eaf8f5 0%, transparent 34%),
+    radial-gradient(circle at top right, #eaf5f8 0%, transparent 30%),
+    var(--bg);
+}
+
+body {
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app {
+  width: 100%;
+  min-height: 100dvh;
+  max-width: 520px;
+  margin: 0 auto;
+  padding:
+    max(20px, env(safe-area-inset-top))
+    20px
+    max(24px, env(safe-area-inset-bottom));
+
+  display: flex;
+  align-items: center;
+}
+
+.screen {
+  width: 100%;
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* =========================
+   로고
+========================= */
+
+.logo-card {
+  width: min(100%, 300px);
+  min-height: 92px;
+  margin: 0 auto 24px;
+  padding: 15px 25px;
+
+  border-radius: 22px;
+
+  /* 흰색 로고가 잘 보이도록 UC Green 배경 */
+  background: var(--primary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: var(--shadow-strong);
+}
+
+.logo-card img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 60px;
+  object-fit: contain;
+}
+
+.logo-fallback {
+  width: 60px;
+  height: 60px;
+
+  border-radius: 16px;
+
+  background: var(--white);
+  color: var(--primary);
+
+  display: grid;
+  place-items: center;
+
+  font-weight: 900;
+  font-size: 21px;
+}
+
+/* =========================
+   첫 화면
+========================= */
+
+.eyebrow {
+  margin: 0 0 10px;
+
+  color: var(--primary);
+
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: -0.3px;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 10px;
+
+  font-size: clamp(38px, 11vw, 54px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+}
+
+h1 strong,
+h2 strong {
+  color: var(--primary);
+}
+
+.subtitle {
+  margin-bottom: 25px;
+
+  color: var(--muted);
+
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.intro-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+
+  margin-bottom: 24px;
+}
+
+.intro-card div {
+  padding: 16px 6px;
+
+  border-radius: 16px;
+
+  background: var(--white);
+
+  box-shadow: var(--shadow);
+
+  text-align: center;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  border: 1px solid rgba(0, 102, 89, 0.06);
+}
+
+.primary-btn {
+  width: 100%;
+  min-height: 58px;
+
+  border: 0;
+  border-radius: 18px;
+
+  background: var(--primary);
+  color: var(--white);
+
+  font-size: 18px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 22px rgba(0, 102, 89, 0.24);
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+
+.primary-btn:active {
+  transform: scale(0.97);
+  background: var(--primary-dark);
+}
+
+.notice {
+  margin: 18px 0 0;
+
+  text-align: center;
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+/* =========================
+   퀴즈 상단
+========================= */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+
+  color: var(--muted);
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.badge {
+  padding: 7px 11px;
+
+  border-radius: 99px;
+
+  background: var(--primary-light);
+  color: var(--primary);
+
+  font-weight: 900;
+}
+
+/* =========================
+   퀴즈 카드
+========================= */
+
+.quiz-card {
+  padding: 25px 18px 20px;
+
+  border-radius: 24px;
+
+  background: var(--white);
+
+  box-shadow: var(--shadow-strong);
+
+  border: 1px solid rgba(0, 102, 89, 0.06);
+}
+
+.question-number {
+  margin-bottom: 8px;
+
+  color: var(--primary);
+
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.quiz-card h2 {
+  margin-bottom: 22px;
+
+  font-size: clamp(22px, 6vw, 29px);
+  line-height: 1.4;
+  letter-spacing: -0.8px;
+
+  word-break: keep-all;
+}
+
+.options {
+  display: grid;
+  gap: 11px;
+}
+
+.option-btn {
+  width: 100%;
+  min-height: 58px;
+
+  padding: 13px 15px;
+
+  border: 2px solid var(--border);
+  border-radius: 16px;
+
+  background: #ffffff;
+  color: var(--text);
+
+  text-align: left;
+
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.35;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    transform 0.1s ease;
+}
+
+.option-btn:active {
+  transform: scale(0.985);
+  border-color: var(--primary);
+}
+
+.option-btn.correct {
+  border-color: #64b99d;
+  background: var(--green-light);
+  color: #197155;
+}
+
+.option-btn.wrong {
+  border-color: #e59ca2;
+  background: var(--red-light);
+  color: #b8444e;
+}
+
+.option-btn:disabled {
+  cursor: default;
+}
+
+.feedback {
+  margin-top: 15px;
+  padding: 14px;
+
+  border-radius: 15px;
+
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 700;
+
+  word-break: keep-all;
+}
+
+.feedback.correct {
+  background: var(--green-light);
+  color: #197155;
+}
+
+.feedback.wrong {
+  background: var(--red-light);
+  color: #b8444e;
+}
+
+.next-btn {
+  margin-top: 12px;
+}
+
+/* =========================
+   룰렛
+========================= */
+
+#rouletteScreen {
+  text-align: center;
+}
+
+#rouletteScreen h2 {
+  margin-bottom: 22px;
+
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -1.2px;
+}
+
+.roulette-wrap {
+  position: relative;
+
+  width: min(82vw, 340px);
+  aspect-ratio: 1;
+
+  margin: 10px auto 18px;
+}
+
+.roulette {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+  border: 7px solid white;
+
+  box-shadow: 0 15px 35px rgba(0, 80, 70, 0.16);
+
+  background: conic-gradient(
+    #006659 0deg 24deg,
+    #a8ddd4 24deg 48deg,
+    #f6d978 48deg 72deg,
+    #8ccfc3 72deg 96deg,
+    #006659 96deg 120deg,
+    #cceaf2 120deg 144deg,
+    #2f9b78 144deg 168deg,
+    #f6d978 168deg 192deg,
+    #006659 192deg 216deg,
+    #a8ddd4 216deg 240deg,
+    #cceaf2 240deg 264deg,
+    #006659 264deg 288deg,
+    #f6d978 288deg 312deg,
+    #2f9b78 312deg 336deg,
+    #a8ddd4 336deg 360deg
+  );
+
+  transition: transform 4.7s cubic-bezier(0.12, 0.78, 0.15, 1);
+}
+
+.roulette-center {
+  position: absolute;
+  inset: 50% auto auto 50%;
+
+  width: 74px;
+  height: 74px;
+
+  transform: translate(-50%, -50%);
+
+  border: 7px solid white;
+  border-radius: 50%;
+
+  background: var(--primary);
+  color: white;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 19px;
+  font-weight: 900;
+
+  box-shadow: 0 4px 15px rgba(0, 80, 70, 0.22);
+}
+
+.pointer {
+  position: absolute;
+  z-index: 3;
+
+  left: 50%;
+  top: -6px;
+
+  width: 0;
+  height: 0;
+
+  transform: translateX(-50%);
+
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-top: 30px solid var(--primary);
+
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.15));
+}
+
+.roulette-hint {
+  margin-bottom: 18px;
+
+  color: var(--muted);
+
+  font-size: 14px;
+}
+
+/* =========================
+   결과
+========================= */
+
+.result-icon {
+  margin-bottom: 10px;
+
+  font-size: 58px;
+
+  animation: pop 0.6s ease;
+}
+
+#resultScreen {
+  text-align: center;
+}
+
+#resultScreen h2 {
+  margin-bottom: 22px;
+
+  font-size: 36px;
+
+  letter-spacing: -1.5px;
+}
+
+.result-card {
+  padding: 30px 20px;
+
+  border-radius: 25px;
+
+  background: var(--white);
+
+  box-shadow: var(--shadow-strong);
+
+  border: 1px solid rgba(0, 102, 89, 0.06);
+}
+
+.result-card p {
+  margin-bottom: 10px;
+
+  color: var(--muted);
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.result-card strong {
+  display: block;
+
+  color: var(--primary);
+
+  font-size: 42px;
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+}
+
+.result-message {
+  margin-top: 18px;
+
+  color: var(--muted);
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* =========================
+   애니메이션
+========================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.12);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* =========================
+   PC
+========================= */
+
+@media (min-width: 700px) {
+  body {
+    padding: 25px 0;
+  }
+
+  .app {
+    min-height: calc(100dvh - 50px);
+  }
+}
