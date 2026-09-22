@@ -192,6 +192,10 @@ button {
   animation: overlayFadeIn 0.2s ease-out;
 }
 
+.answer-overlay[hidden] {
+  display: none;
+}
+
 
 /* 해설 팝업 */
 
