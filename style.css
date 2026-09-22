@@ -82,35 +82,18 @@ button {
 .screen.active {
   display: block;
 }
+
 /* =========================
-   퀴즈 해설 상태
+   문제 영역
 ========================= */
 
-.question-number.feedback-correct {
-  color: #006659;
-  font-weight: 800;
-}
-
-.question-number.feedback-wrong {
-  color: #d94a4a;
-  font-weight: 800;
-}
-
-#questionText.feedback-correct,
-#questionText.feedback-wrong {
-  line-height: 1.65;
-  font-size: 20px;
-}
-
-
-/* 해설이 길어져도 카드가 자연스럽게 늘어나도록 */
 .question-area {
+  position: relative;
   min-height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
 
 /* 퀴즈 완료 화면 */
 
@@ -185,15 +168,6 @@ button {
   font-weight: 900;
   font-size: 21px;
 }
-
-/* =========================
-   문제 영역
-========================= */
-
-.question-area {
-  position: relative;
-}
-
 
 /* =========================
    정답/오답 오버레이
@@ -533,33 +507,6 @@ h2 strong {
 
 .option-btn:disabled {
   cursor: default;
-}
-
-.feedback {
-  margin-top: 15px;
-  padding: 14px;
-
-  border-radius: 15px;
-
-  font-size: 14px;
-  line-height: 1.5;
-  font-weight: 700;
-
-  word-break: keep-all;
-}
-
-.feedback.correct {
-  background: var(--green-light);
-  color: #197155;
-}
-
-.feedback.wrong {
-  background: var(--red-light);
-  color: #b8444e;
-}
-
-.next-btn {
-  margin-top: 12px;
 }
 
 /* =========================
